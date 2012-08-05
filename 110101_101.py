@@ -1,11 +1,24 @@
 #!/usr/bin/env python
+import sys
+
 while 1:
         try:
                 n = raw_input()
                 splited = n.split()
                 maxLength = 0
+
+                if len(splited) != 2:
+                        sys.exit()
+
                 l = int(splited[0])
                 r = int(splited[1])
+
+                minN = min(l, r)
+                maxN = max(l, r)
+
+                if (minN < 0) or (maxN > 1000000):
+                        sys.exit()
+
                 for i in range(l, r + 1):
                         thisN = i
                         thisLength = 1
