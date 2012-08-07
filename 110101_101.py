@@ -32,6 +32,29 @@ def calculate(l, r):
         maxLength = max(maxLength, thisLength)
     print l, r, maxLength
 
+@timeit
+def d_calculate(l, r):
+    maxLength = 0
+    dic = {}
+    for i in xrange(l, r + 1):
+        if dic.get(i) != None:
+            continue
+        dic[i] = 1
+        thisN = i
+        thisLength = 1
+        while 1:
+            if thisN == 1:
+                break
+            elif thisN % 2 == 0:
+                thisN /= 2
+            else:
+                thisN = thisN * 3 + 1
+            thisLength += 1
+            dic[thisN] = 1
+        maxLength = max(maxLength, thisLength)
+    print l, r, maxLength
+
+
 while 1:
     try:
         n = raw_input()
@@ -51,6 +74,10 @@ while 1:
             sys.exit()
 
         calculate(l, r)
+#        r_calculate(l, r)
+#        calculate(l, r)
+#        x_calculate(l, r)
+        d_calculate(l, r)
 
     except (EOFError):
         break
