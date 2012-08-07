@@ -74,9 +74,6 @@ while 1:
             sys.exit()
 
         calculate(l, r)
-#        r_calculate(l, r)
-#        calculate(l, r)
-#        x_calculate(l, r)
         d_calculate(l, r)
 
     except (EOFError):
