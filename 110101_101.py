@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 import sys
+import time
 
+def timeit(method):
+
+    def timed(*args, **kw):
+        start = time.time()
+        result = method(*args, **kw)
+        end = time.time()
+
+        print '%r (%r, %r) %2.2f sec' % \
+            (method.__name__, args, kw, end - start)
+        return result
+
+    return timed 
+
+@timeit
 def calculate(l, r):
     maxLength = 0
     for i in range(l, r + 1):
