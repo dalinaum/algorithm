@@ -6,8 +6,7 @@ while 1:
     n = int(raw_input())
     if n == 0:
         sys.exit()
-    sqrted = math.sqrt(n) 
-    if n == sqrted * sqrted:
+    if n == math.sqrt(n) ** 2:
         print "yes"
     else:
         print "no"
