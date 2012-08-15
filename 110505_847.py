@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import sys
 import math
 
 n = int(raw_input())
