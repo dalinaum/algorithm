@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-import sys
-
 while 1:
     try:
         data = raw_input()
