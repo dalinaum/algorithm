@@ -20,6 +20,7 @@ def decrypt(enc, td):
 def processOneSet():
     ds = []
     text = "the quick brown fox jumps over the lazy dog"
+    first = True
 
     while 1:
         try:
@@ -28,10 +29,15 @@ def processOneSet():
             break
 
         if line == "":
-            break
+            if first == False:
+                break
+            else:
+                continue
 
         ds.append(line) 
+        first = False
 
+    td = None
     for d in ds:
         td = makeTranDict(d, text)
         if td != None:
