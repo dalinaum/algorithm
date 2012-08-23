@@ -1,19 +1,33 @@
 #!/usr/bin/env python
+import math
 for i in range(int(raw_input())):
     n = int(raw_input())
-    d = filter(lambda x: n % x == 0, range(1, n))
+    if n <= 1 or n >= 500000:
+        continue
+    d = [1]
+    sqrted = int(math.sqrt(n))
+    for x in range(2, sqrted):
+        if n % x == 0: 
+            d.append(x)
+            d.append(n/x)
+    if sqrted ** 2 == n:
+            d.append(sqrted)
     if sum(d) > n:
         max = 2 ** len(d) - 1
-        for x in xrange(2, max + 1):
+        x = 2
+        while x < max + 1:
             total = 0
-            for y in xrange(len(d)):
+            for y in range(len(d)):
                 if ((2 ** y) & x != 0):
                     total += d[y]
+                    if total > n:
+                        break
             if total == n:
-                break
+                break  
+            x += 1
         if total == n:
             print "not weird"
         else:
-            print "weird"
+            print "weird" 
     else:
         print "not weird"
